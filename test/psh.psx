@@ -1,0 +1,50 @@
+import os
+import sys
+import time
+import pyfiglet
+from colorama import *
+
+def typ(str):
+    for chr in str:
+        sys.stdout.write(chr)
+        sys.stdout.flush()
+        if chr != "\n":
+            time.sleep(0.001)
+        else:
+            time.sleep(0.05)
+
+typ(Fore.RED + pyfiglet.figlet_format("PYTHON  ", font="os2"))
+typ(Fore.LIGHTBLUE_EX + pyfiglet.figlet_format("SHELL  ", font="os2"))
+typ(Fore.GREEN + pyfiglet.figlet_format("KERNEL  ", font="os2"))
+typ("for UNIX\n")
+
+while True:
+    cmd = input(f"{Fore.GREEN} [user@{os.getcwd()}] {Fore.BLUE}/=~ {Fore.WHITE}")
+    if cmd == "exit":
+        print("[exiting psh, running zsh/bash]")
+        time.sleep(1)
+        break
+    elif cmd == "ls":
+        os.system("ls")
+    elif cmd == "nwdr":
+        dirname = input("What directory name are you gonna make: ")
+        os.system("mkdir " + dirname)
+    elif cmd == "cls":
+        os.system("clear")
+    elif cmd == "version":
+        print(f"{Fore.BLUE} {Back.YELLOW} PYTHON Shell kernel 1.0\n{Back.BLACK}Kernel: 'Python 3.11.6 (main, Oct  2 2023, 13:45:54) [Clang 15.0.0 (clang-1500.0.40.1)] on darwin' is from. Built with GCC")
+    elif cmd == "" or cmd.isspace():
+        pass
+    elif cmd == "nwfl":
+        fil = input("What is the filename are you gonna make: ")
+        os.system("touch " + fil)
+    elif cmd.startswith("cd"):
+        directory = cmd.split(" ", 1)[1]
+        if directory == "~":
+            directory = os.path.expanduser("~")
+        try:
+            os.chdir(directory)
+        except FileNotFoundError:
+            typ(f"{Fore.RED} ERROR: {Fore.WHITE}Directory '{directory}' not found")
+    else:
+        typ(f"{Fore.RED} ERROR: {Fore.WHITE}{cmd} not found")
