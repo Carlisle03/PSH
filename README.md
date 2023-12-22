@@ -1,7 +1,7 @@
 # Python Shell 
 This is my First DIY Shell. Also my first 100 lines of code.
 
-![Preview](assets/preview.png)
+![Preview](preview.png)
 ## Setup
 ### Unix platforms
 Do 
