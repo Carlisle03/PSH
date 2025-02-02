@@ -2,8 +2,7 @@
 This is my First DIY Shell. Also my first 100 lines of code.
 
 ![Preview](preview.png)
-## Setup
-### Unix platforms
+### Usage
 Do 
 ```bash
 python3 -m pip install colorama pyfiglet
@@ -12,5 +11,4 @@ then
 ```bash
 python3 psh.py
 ```
-### NT Platforms
-Good luck using WSL 
+
